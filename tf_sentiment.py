@@ -48,9 +48,9 @@ import matplotlib.pyplot as plt
 import os
 
 PROGRAM         = __file__
-VERSION         = '0.2'
+VERSION         = '0.3'
 AUTHOR          = 'mal@malm.co.uk'
-DATE            = '23.12.20'
+DATE            = '30.12.20'
 
 def configure_dataset(dataset):
     AUTOTUNE = tf.data.experimental.AUTOTUNE
@@ -239,13 +239,13 @@ if __name__ == '__main__':
         t0 = time.time()
         print(f'1. Load dataset "{sourcedataset}"')
         info, encoder, dataset = loadDataset(sourcedataset)
-        if os.path.exists(modelType) or not force:
+        if os.path.exists(modelType) and not force:
             print(f'2. Load model from "{modelType}"')
             model = loadModel(modelType)
             print(model.summary())
             t1 = time.time()
             runTests(model)
-            print(f'=== Fininshed running existing {modelType} model in {round(t1-t0, 2)} seconds')
+            print(f'=== Finished running existing {modelType} model in {round(t1-t0, 2)} seconds')
         else:
             print(f'2. Construct model "{modelType}"')
             if modelType == 'singleLSTM':
@@ -260,5 +260,5 @@ if __name__ == '__main__':
             runTests(model)
             t1 = time.time()
             t = round((t1-t0)/60)
-            print(f'=== Fininshed building {modelType} model with {nepochs} epochs and {nvalidation} validations in {t1-t0} minutes')
+            print(f'=== Finished building {modelType} model with {nepochs} epochs and {nvalidation} validations in {t1-t0} minutes')
     
