@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# -*- coding: future_fstrings -*-
 #
 # tf_sentiment.py
 # Mal Minhas, <mal@malm.co.uk>
+# 20.12.20
 #
 # Description
 # -----------
